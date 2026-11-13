@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "metadata": {
+    "data_version": "sample-1",
+    "state_names": [
+      "短住",
+      "常驻",
+      "离村"
+    ],
+    "allowed_edges": [
+      [
+        "短住",
+        "常驻"
+      ],
+      [
+        "常驻",
+        "短住"
+      ],
+      [
+        "短住",
+        "离村"
+      ],
+      [
+        "离村",
+        "短住"
+      ]
+    ],
+    "cutpoints": [
+      0,
+      90,
+      180
+    ]
+  },
+  "collections": {
+    "visits": [
+      {
+        "id": "a1",
+        "revision": 1,
+        "person": "a",
+        "day": 0,
+        "states": [
+          "短住"
+        ]
+      },
+      {
+        "id": "a2",
+        "revision": 1,
+        "person": "a",
+        "day": 30,
+        "states": [
+          "常驻"
+        ]
+      },
+      {
+        "id": "b1",
+        "revision": 1,
+        "person": "b",
+        "day": 5,
+        "states": [
+          "短住",
+          "常驻"
+        ]
+      }
+    ]
+  }
+}
