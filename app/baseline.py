@@ -1,5 +1,6 @@
 """现有业务摘要，不推断未观察到的业务关系。"""
-def analyze(snapshot):
+def visits_by_person(snapshot):
+    """按人整理有效访问：相同person/day取允许状态集合的交，空交即资料冲突。"""
     people = {}
     valid = set(snapshot.metadata['state_names'])
     for row in snapshot.rows('visits'):
@@ -11,6 +12,10 @@ def analyze(snapshot):
         if not states:
             raise ValueError('同日观察状态冲突')
         by_day[row['day']] = states
+    return people
+
+def analyze(snapshot):
+    people = visits_by_person(snapshot)
     spans = []
     for person, days in sorted(people.items()):
         ordered = sorted(days)
